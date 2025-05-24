@@ -1,5 +1,6 @@
-from socket import socket, AF_INET, SOCK_STREAM
 import threading
+from socket import AF_INET, SOCK_STREAM, socket
+
 
 class ChatClient:
     def __init__(self, host='localhost', port=12345):
@@ -33,6 +34,15 @@ class ChatClient:
                 self.client_socket.close()
             else:
                 self.send_message(message)
+
+
+    def create_group(self, group_name):
+        # Envía comando al servidor para crear grupo
+        self.client_socket.sendall(f"CREATE_GROUP:{group_name}".encode('utf-8'))
+                
+    def join_group(self, group_name):
+        # Envía comando al servidor para unirse a grupo
+        self.client_socket.sendall(f"JOIN_GROUP:{group_name}".encode('utf-8'))
 
 if __name__ == "__main__":
     chat_client = ChatClient()
