@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Archivos de configuración de VSCode
+.vscode/
+
+# Archivos temporales y de sistema
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Archivos de audio generados
+*.wav
+
+# Archivos de historial
+*.history
+*.sqlite3
+
+# Archivos de dependencias descargados
+*.egg-info/
+dist/
+build/
+
+# Archivos de Jupyter
+.ipynb_checkpoints/
+
+# Archivos de configuración de Flask
+instance/
+.webassets-cache/

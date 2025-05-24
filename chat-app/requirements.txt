@@ -1,0 +1,6 @@
+Flask==2.0.1
+Flask-SocketIO==5.0.1
+pyaudio
+numpy
+requests==2.25.1
+SpeechRecognition==3.8.1
