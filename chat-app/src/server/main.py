@@ -1,8 +1,8 @@
 import socket
 import threading
 
-from src.server.group import GroupChat
-from src.server.message import MessageStorage
+from group import GroupChat
+from message import MessageStorage
 from src.utils.protocol import Protocol
 
 
