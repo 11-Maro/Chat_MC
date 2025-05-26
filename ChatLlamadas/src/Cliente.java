@@ -14,7 +14,7 @@ public class Cliente {
     private PrintWriter out;
     private DataInputStream dis;
     private DataOutputStream dos;
-    private String nickname;
+    private String nombre;
     private Thread listenerThread;
     private Thread audioListenerThread;
     private String currentChatName;
@@ -29,9 +29,9 @@ public class Cliente {
     private static final boolean BIG_ENDIAN = true;
     private static final AudioFormat format = new AudioFormat(SAMPLE_RATE, SAMPLE_SIZE_IN_BITS, CHANNELS, SIGNED, BIG_ENDIAN);
 
-    public Cliente(String address, int port, int audioPort, String nickname) {
+    public Cliente(String address, int port, int audioPort, String nombre) {
         try {
-            this.nickname = nickname;
+            this.nombre = nombre;
             this.socket = new Socket(address, port);
             this.audioSocket = new Socket(address, audioPort);
             this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -39,8 +39,8 @@ public class Cliente {
             this.dis = new DataInputStream(audioSocket.getInputStream());
             this.dos = new DataOutputStream(audioSocket.getOutputStream());
 
-            // Enviar el nickname al servidor
-            out.println(nickname);
+            // Enviar el nombre al servidor
+            out.println(nombre);
             
             Scanner scanner = new Scanner(System.in);
             String opcion;
@@ -74,11 +74,7 @@ public class Cliente {
             }
             else{
                 System.out.println("Opción no válida");
-
-
             }} while (!opcion.equals("3"));
-            
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,10 +82,10 @@ public class Cliente {
 
     private void ingresarChat() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del chat para crear o unirse:");
+        System.out.println("Se tiene que ingresar un nombre para chat para crearlo o unirse si es que ya exite:");
         String chatName = scanner.nextLine();
         currentChatName = chatName;  // Guardar el nombre del chat actual
-        out.println("/chat " + chatName);  // Enviar el nombre del chat al servidor
+        out.println("nombre del chat: " + chatName);  // Enviar el nombre del chat al servidor
     }
 
     private void enviarMensajes() {
@@ -99,16 +95,16 @@ public class Cliente {
             String message = scanner.nextLine();
             if (!message.isEmpty()) {
                 out.println(message);
-                if(message.equals("/exit")){
+                if(message.equals("--Salir")){
                     break;
-                }else if (message.startsWith("/call")) {
+                }else if (message.startsWith("--llamada")) {
                 onCall = true;
                 startGroupCall(currentChatName);
-                }else if (message.startsWith("/leave_call")) {
+                }else if (message.startsWith("--salir_llamada")) {
                     onCall = false;
-                    out.println("/leave_call " + currentChatName + " " + callPort);
+                    out.println("--salir_llamada " + currentChatName + " " + callPort);
                 }else if(!onCall){
-                    if(message.equals("/audio")){
+                    if(message.equals("--audio")){
                     enviarAudio();  
                     }
                 }
@@ -278,8 +274,8 @@ public class Cliente {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa tu nickname: ");
-        String nickname = scanner.nextLine();
-        new Cliente("localhost", 12345, 12346, nickname);
+        System.out.print("Escribe tu nombre: ");
+        String nombre = scanner.nextLine();
+        new Cliente("localhost", 12345, 12346, nombre);
     }
 }
