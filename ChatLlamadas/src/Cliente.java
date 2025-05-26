@@ -46,11 +46,15 @@ public class Cliente {
             String opcion;
             // Solicitar el nombre del chat
             do{
-                System.out.println("1. Para crear chat o unirse a chat");
-                System.out.println("2. Para ver cuales son los chats disponibles");
-                System.out.println("3.  Si deseas salir");
-                System.out.print("Elige una opción: ");
-                opcion = scanner.nextLine();
+            System.out.println("\n╔═══════════════════════════════════════════╗");
+            System.out.println("║          CONSOLE VOICE CHAT               ║");
+            System.out.println("╠═══════════════════════════════════════════╣");
+            System.out.println("║ 1 ▸ Crear un chat o unirse a uno          ║");
+            System.out.println("║ 2 ▸ Ver la lista de chats disponibles     ║");
+            System.out.println("║ 3 ▸ Salir de la aplicación                ║");
+            System.out.println("╚═══════════════════════════════════════════╝");
+            System.out.print("Seleccione una opción:  ");
+            opcion = scanner.nextLine();
 
                 iniciarListener();
 
