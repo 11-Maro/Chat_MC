@@ -1,0 +1,4 @@
+
+nicoals se ha unido al chat
+nicoals: --salir
+nicoals ha salido del chat

@@ -46,10 +46,9 @@ public class Cliente {
             String opcion;
             // Solicitar el nombre del chat
             do{
-                System.out.println("Menu:");
-                System.out.println("1. Crear chat o unirse a chat");
-                System.out.println("2. Ver chats disponibles");
-                System.out.println("3. Salir");
+                System.out.println("1. Para crear chat o unirse a chat");
+                System.out.println("2. Para ver cuales son los chats disponibles");
+                System.out.println("3.  Si deseas salir");
                 System.out.print("Elige una opción: ");
                 opcion = scanner.nextLine();
 
@@ -86,7 +85,7 @@ public class Cliente {
 
     private void ingresarChat() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del chat para crear o unirse:");
+        System.out.println("Ingrese el nombre del chat para crearlo o unirse en caso de que no exista:");
         String chatName = scanner.nextLine();
         currentChatName = chatName;  // Guardar el nombre del chat actual
         out.println("/chat " + chatName);  // Enviar el nombre del chat al servidor
@@ -99,16 +98,16 @@ public class Cliente {
             String message = scanner.nextLine();
             if (!message.isEmpty()) {
                 out.println(message);
-                if(message.equals("/exit")){
+                if(message.equals("--salir")){
                     break;
-                }else if (message.startsWith("/call")) {
+                }else if (message.startsWith("--llamar")) {
                 onCall = true;
                 startGroupCall(currentChatName);
-                }else if (message.startsWith("/leave_call")) {
+                }else if (message.startsWith("--dejar")) {
                     onCall = false;
-                    out.println("/leave_call " + currentChatName + " " + callPort);
+                    out.println("--dejar " + currentChatName + " " + callPort);
                 }else if(!onCall){
-                    if(message.equals("/audio")){
+                    if(message.equals("--audio")){
                     enviarAudio();  
                     }
                 }

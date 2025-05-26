@@ -1,0 +1,10 @@
+
+nicoals se ha unido al chat
+nicoals: /audio
+juan se ha unido al chat
+juan: /audio
+juan: hola
+juan: /audio
+juan: /audio
+nicoals ha salido del chat
+juan ha salido del chat
