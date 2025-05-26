@@ -25,8 +25,7 @@ Para cada requerimiento se debe escoger el protocolo de comunicación (TCP o UDP
 
 **Entrega:**  
 Además del código fuente, se debe entregar este README con las instrucciones para ejecutar el programa y los nombres de los integrantes.
-### Instrucciones para Windows
-
+### Instrucciones de arranque
 1. **Requisitos previos**
    - Tener instalado **Java JDK 8 o superior**.
    - Usar el símbolo del sistema (cmd) o PowerShell.
@@ -67,50 +66,3 @@ Además del código fuente, se debe entregar este README con las instrucciones p
    - Puedes abrir varias ventanas y ejecutar varios clientes para simular múltiples usuarios.
    - Los mensajes y audios se guardan automáticamente en la carpeta `src\data\` bajo el nombre del chat.
    - Para salir de la aplicación, selecciona la opción correspondiente en el menú del cliente.
-
----
-
-## Instrucciones para linux
-
-### 1. Requisitos previos
-
-- **Java JDK 8 o superior** instalado.
-- Sistema operativo Linux (probado en Linux).
-- Terminal de comandos.
-
-### 2. Compilar el proyecto
-
-Abre una terminal en la carpeta raíz del proyecto (`Chat_MC/ChatLlamadas/src`) y ejecuta:
-
-```sh
-javac *.java
-```
-
-Esto compilará todos los archivos `.java` necesarios.
-
-### 3. Iniciar el servidor
-
-En la misma carpeta (`src`), ejecuta:
-
-```sh
-java Servidor
-```
-
-Verás un mensaje indicando que el servidor está iniciado.
-
-### 4. Iniciar un cliente
-
-Abre otra terminal, navega a la misma carpeta (`src`) y ejecuta:
-
-```sh
-java Cliente
-```
-
-Sigue las instrucciones en pantalla para ingresar tu nickname y unirte o crear un chat.
-
-### 5. Notas adicionales
-
-- Puedes abrir varias terminales y ejecutar varios clientes para simular múltiples usuarios.
-- Los mensajes y audios se guardan automáticamente en la carpeta `src/data/` bajo el nombre del chat.
-- Para salir de la aplicación, selecciona la opción correspondiente en el menú del cliente.
-
